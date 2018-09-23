@@ -85,7 +85,7 @@ This is the source of the image that you ultimately want to load. The example be
   </div>
 ```
 
-First instantiate `VISION3000`. You can pass in some basic configuration options like rootMargin and threshold (the values you see below are the defaults, should you choose not to pass in any). The meat here is the `onIntersection` callback where you can basically do MAGIC.
+First instantiate `VISION3000`. You can pass in some basic configuration options like rootMargin and threshold (the values you see below are the defaults, should you choose not to pass in any). The meat here are the callbacks (onIntersecion, LoadStart, Load) where you can do :sparkles:MAGIC:sparkles:
 
 ```js
   const Observer = new Vision3000({
