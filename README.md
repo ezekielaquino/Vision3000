@@ -132,7 +132,7 @@ Click [here](https://ezekielaquino.github.io/Vision3000) to view the mini-demo!
 
 ## P.S.
 
-Vision3000 is available as a React component (`ReactVision3000`). So you can just do something like <ObservableImage /> in your React apps. Coming soon in a second.
+Vision3000 is available as a React component [ReactVision3000](https://github.com/ezekielaquino/ReactVision3000). So you can just do something like <ObservableImage /> in your React apps.
 
 
 ## P.P.S
