@@ -1,0 +1,26 @@
+{
+  "name": "vision3000-demo",
+  "version": "0.0.1",
+  "description": "Demo: LazyLoading for the New Millenium™",
+  "license": "GPL-3.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/ezekielaquino/Vision3000",
+  "author": "Ezekiel Aquino <ezekielaquino@gmail.com>",
+  "scripts": {
+    "start": "parcel index.html --out-dir ../build",
+    "build": "parcel build index.html --out-dir ../build --public-url '.' --no-source-maps",
+    "predeploy": "rm -rf build && yarn build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.0",
+    "parcel": "^1.9.7",
+    "stylus": "^0.54.5"
+  },
+  "umd:main": "dist/index.umd.js",
+  "module": "src/index.js",
+  "source": "src/index.js",
+  "dependencies": {
+    "zenscroll": "^4.0.2"
+  }
+}

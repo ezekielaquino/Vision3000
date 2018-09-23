@@ -1,0 +1,254 @@
+@import '_reset';
+
+html {
+  background-color: #000;
+  color: #fff;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nav {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 30px;
+  left: 0;
+  z-index: 9999;
+
+  &__wrap {
+    position: relative;
+    font-size: 9px;
+    font-family: 'Arial';
+
+    &:after {
+      content: '';
+      clear: both;
+    }
+  }
+
+  &__header {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    padding-bottom: 5px;
+    transform: translateY(-100%);
+
+    h1 {
+      font-size: 9px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  }
+
+  &__legend {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-bottom: 5px;
+    font-size: 9px;
+    transform: translateY(-100%);
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Arial';
+    display: flex;
+    align-items: center;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+
+      &:before {
+        display: block;
+        margin-top: -2px;
+      }
+    }
+
+    span + span {
+      margin-left: 10px;
+    }
+
+    span:nth-child(1):before,
+    span:nth-child(2):before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 3px;
+      background-color: #fff;
+    }
+
+    span:nth-child(2):before {
+      background-color: rgba(255, 255, 255, 0.5);
+      animation: blink 2s infinite;
+    }
+
+    span:nth-child(3):before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 3px;
+      border: 1px solid #fff;
+    }
+  }
+
+  li {
+    width: 60px;
+    height: 60px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    &:before {
+      content: '';
+      width: calc(100% + 1px);
+      height: calc(100% + 1px);
+      position: absolute;
+      right: -1px;
+      bottom: -1px;
+      border-right: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      pointer-events: none;
+    }
+  }
+
+  &__label {
+    letter-spacing: 1px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  &__dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 10px);
+    top: calc(50% - 17px);
+    transition: background-color 0.2s;
+    pointer-events: none;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: calc(100% + 6px);
+      height: calc(100% + 6px);
+      top: -3px;
+      left: -3px;
+      border-radius: 50%;
+      border: 1px solid white;
+      transition: opacity 0.5s;
+      opacity: 0;
+
+      .viewed & {
+        opacity: 1;
+      }
+    }
+
+    .viewing & {
+      background-color: #fff;
+    }
+
+    .is-loading & {
+      background-color: rgba(255, 255, 255, 0.5);
+      animation: blink 2s infinite;
+    }
+  }
+}
+
+.observable {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: scroll-position;
+
+  figure {
+    position: relative;
+  }
+
+  &.is-loading figure {
+    &:after {
+      content: 'LOADING';
+      font-size: 11px;
+      letter-spacing: 1px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+
+  @media (min-width: 720px) {
+    figure {
+      height: 80%;
+      margin: 0;
+    }
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+
+    &--40 {
+      height: 40vh;
+    }
+  }
+
+  @media (max-width: 720px) {
+    figure {
+      width: calc(100% - 60px);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.is-halted {
+  &:after {
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    border: 20px solid green;
+    pointer-events: none;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+  }
+}
+
+
+@keyframes blink {
+  0% { background-color: rgba(255, 255, 255, 0.3) }
+  50% { background-color: rgba(255, 255, 255, 0.5) }
+  100% { background-color: rgba(255, 255, 255, 0.3) }
+}

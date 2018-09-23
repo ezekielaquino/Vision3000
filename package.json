@@ -1,0 +1,28 @@
+{
+  "name": "vision3000",
+  "version": "0.1.0",
+  "description": "LazyLoading for the New Millenium™",
+  "license": "GPL-3.0",
+  "keywords": [
+    "lazyload",
+    "lazy",
+    "load",
+    "intersectionobserver",
+    "observer",
+    "intersection"
+  ],
+  "main": "src/index.js",
+  "repository": "https://github.com/ezekielaquino/Vision3000",
+  "author": "Ezekiel Aquino <ezekielaquino@gmail.com>",
+  "scripts": {
+    "start": "cd src && microbundle watch --output ../dist",
+    "build": "cd src && microbundle build --output ../dist --sourcemap false",
+    "dev": "yarn start & yarn --cwd demo start"
+  },
+  "devDependencies": {
+    "microbundle": "^0.6.0"
+  },
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/Vision3000.mjs",
+  "source": "src/index.js"
+}

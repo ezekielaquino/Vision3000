@@ -1,0 +1,8 @@
+.DS_STORE
+.cache
+node_modules
+*.sh
+*.log
+demo/build
+demo/src/images
+.npmignore
